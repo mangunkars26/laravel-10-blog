@@ -3,10 +3,8 @@
 namespace App\View\Components;
 
 use App\Models\Category;
-use Illuminate\Support\Collection;
-use Illuminate\View\View;
 use Illuminate\View\Component;
-use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AppLayout extends Component
 {
