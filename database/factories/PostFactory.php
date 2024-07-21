@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'thumbnail' => $this->faker->imageUrl(),
-            'body' => $this->faker->paragraphs(3, true),
+            'body' => $this->faker->paragraphs(10, true),
             'active' => $this->faker->boolean,
             'published_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'user_id' => \App\Models\User::factory(),

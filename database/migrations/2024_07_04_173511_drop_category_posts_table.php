@@ -24,7 +24,6 @@ class DropCategoryPostsTable extends Migration
     public function down()
     {
 
-
         Schema::create('category_post', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');

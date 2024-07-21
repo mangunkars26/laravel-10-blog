@@ -2,31 +2,26 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use App\Models\Post;
-use Filament\Tables;
-use Filament\Forms\Set;
+use App\Filament\Resources\PostResource\Pages;
 use App\Models\Category;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Forms\Components\RichEditor;
+use App\Models\Post;
+use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
-use FilamentTiptapEditor\TiptapEditor;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\PostResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\PostResource\RelationManagers;
+use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Support\Str;
 
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationGroup = 'Content';
 
+    protected static ?string $navigationGroup = 'Content';
 
     public static function form(Form $form): Form
     {
@@ -65,7 +60,7 @@ class PostResource extends Resource
                             ->searchDebounce(50)
                             ->multiple()
                             ->relationship('categories', 'title')
-                            ->required()
+                            ->required(),
                     ])->columnSpan(4),
 
             ])->columns(12);
@@ -99,8 +94,8 @@ class PostResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make()
-                ])
+                    Tables\Actions\DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

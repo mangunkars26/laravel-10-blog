@@ -4,11 +4,10 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Post;
-use App\Models\Category;
 use Database\Seeders\PostSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class PostSeederTest extends TestCase
 {

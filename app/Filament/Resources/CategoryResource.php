@@ -2,27 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use Closure;
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Set;
+use App\Filament\Resources\CategoryResource\Pages;
 use App\Models\Category;
+use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\CategoryResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\CategoryResource\RelationManagers;
 
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
-    protected static ?string $navigationGroup = 'Content';
 
+    protected static ?string $navigationGroup = 'Content';
 
     public static function form(Form $form): Form
     {
@@ -34,7 +30,6 @@ class CategoryResource extends Resource
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation
                         === 'create' ? $set('slug', Str::slug($state)) : null),
-
 
                 Forms\Components\TextInput::make('slug')
                     ->required()
