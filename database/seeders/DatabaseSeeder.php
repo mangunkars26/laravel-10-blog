@@ -15,22 +15,20 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        // $adminUser = User::factory()->create([
-        //     'email' => 'admin@contoh.com',
-        //     'name'  => 'Admin',
-        //     'password' => bcrypt('admin123'),
-        // ]);
+        /**
+         * @var \App\Models\User $adminUser
+         */
+        $adminUser = User::factory()->create([
+            'email' => 'admin@example.com',
+            'name'  => 'Admin',
+            'password' => bcrypt('admin123'),
+        ]);
 
-        // $adminRole = Role::create(['name' => 'admin']);
+        $adminRole = Role::create(['name' => 'admin']);
 
-        // $adminUser->assignRole($adminRole);
+        $adminUser->assignRole($adminRole);
 
-        $this->call(PostSeeder::class);
-        \App\Models\User::factory(20)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // $this->call(PostSeeder::class);
+        // \App\Models\User::factory(20)->create();
     }
 }

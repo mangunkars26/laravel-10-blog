@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbar-body {
+    /* @apply w-full py-0 shadow-lg bg-gradient-to-r from-blue-950 via-blue-950 to-green-800; */
+}
